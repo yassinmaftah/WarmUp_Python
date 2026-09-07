@@ -1,0 +1,33 @@
+services:
+  jupyter:
+    image: quay.io/jupyter/scipy-notebook:2025-12-31
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    command: start-notebook.py --ServerApp.root_dir=/home/jovyan/work
+    networks:
+        - devAi
+    depends_on: 
+        - pgsql
+        
+  pgsql:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: restaurant_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Commented out until you actually need to import a SQL file
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+        - devAi
+
+volumes:
+  postgres_data:
+
+networks:
+  devAi:
