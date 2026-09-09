@@ -167,5 +167,5 @@ class Formateur(Employe):
 f = Formateur("YSN-33","Yassine",date(2004, 6, 29),date(2024, 6, 29),6000,12)
 print(f)
 print(f"Age: {f.age()} ans")
-print(f"Ancienneté: {f.anciennete()} ans")
-print(f"Salaire à payer: {f.salaire_a_payer()} DH")
+print(f"anciennete: {f.anciennete()} ans")
+print(f"salaire_a_payer : {f.salaire_a_payer()} DH")
