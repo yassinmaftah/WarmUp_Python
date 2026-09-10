@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 from datetime import date
-from bisect import bisect_left
 
 # Abstract Base Classes
 class Employe(ABC):
